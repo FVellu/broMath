@@ -1,0 +1,75 @@
+* {
+    margin: 0;
+    font-family: roboto;
+}
+
+body {
+    background-color: #393939;
+}
+
+p, h1 {
+    text-align: center;
+}
+
+h1 {
+    color: #ff133e;
+}
+
+p {
+    color: white;
+    margin-bottom: 10px;
+}
+
+div {
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+input {
+    margin-right: 10px;
+    width: 100px;
+    text-align: center;
+}
+
+input, button {
+    border-radius: 8px;
+    border: none;
+}
+
+a {
+    color: white;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+}
+
+nav {
+    height: 60px;
+    width: 100%;
+    background-color: #ff133e;
+    margin-bottom: 10px;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+nav p {
+    height: auto;
+    color: white;
+    font-size: 25px;
+    font-family: marker;
+    transform: translateY(5px);
+}
+
+@font-face {
+    font-family: roboto;
+    src: url(./Fonts/Roboto-Bold.ttf);
+}
+@font-face {
+    font-family: marker;
+    src: url(./Fonts/PermanentMarker-Regular.ttf);
+}
