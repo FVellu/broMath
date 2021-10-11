@@ -10,7 +10,7 @@
 <body>
     <nav><p>broMath</p></nav>
     <p>
-        Break down a number
+        Prime factorize a number
     </p>
 
     <div>
@@ -29,7 +29,8 @@
                 clearResult()
                 while(tries != 0) {
                     if(number % index == 0) {
-                        addResult(number + "|" + index)
+                        addResult(number + " ÷ " + index + " = " + number / index)
+                        //addResult("<right>" + number + "</right>" + "|" + "<left>" + index + "</left>")
                         number = number / index
                         index = 1
                     }
@@ -39,7 +40,6 @@
                     index++
                     tries--
                 }
-                addResult("1|")
             }
         })
 
