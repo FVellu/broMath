@@ -57,12 +57,13 @@ nav {
     align-items: center;
 }
 
-nav p {
+nav p a {
     height: auto;
     color: white;
     font-size: 25px;
     font-family: marker;
     transform: translateY(5px);
+    text-decoration: none;
 }
 
 @font-face {
