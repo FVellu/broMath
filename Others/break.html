@@ -23,21 +23,21 @@
     <script>
         calcButton.addEventListener("click", () => {
             var number = document.getElementById("input1").value
+            var index = 2
+            var tries = number
             if(number > 2) {
                 clearResult()
-                for(let index = 2; index < Math.round((number / 2) + 1) + 2; index++) { 
+                while(tries != 0) {
                     if(number % index == 0) {
-                        addResult(number + "|" + index + "<br>")
-                        var lastNum = number
+                        addResult(number + "|" + index)
                         number = number / index
+                        index = 1
                     }
-
-                    if(Math.round((number / 2) + 1) + 1 == index) {
-                        addResult(number + "|" + number + "<br>")
-                        var lastNum = number
-                        number = number / number
+                    if(index == number) {
+                        break
                     }
-                    
+                    index++
+                    tries--
                 }
                 addResult("1|")
             }
@@ -48,7 +48,7 @@
         }
 
         function addResult( whatToWrite ) {
-            document.getElementById("result").innerHTML += whatToWrite
+            document.getElementById("result").innerHTML += whatToWrite + "<br>"
         }
     </script>
 </body>
