@@ -66,6 +66,17 @@ nav p a {
     text-decoration: none;
 }
 
+#about {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+    color: #ff133e;
+    font-size: 15px;
+    text-align: center;
+}
+
 @font-face {
     font-family: roboto;
     src: url(./Fonts/Roboto-Bold.ttf);
