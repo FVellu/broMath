@@ -23,24 +23,26 @@
     <script>
         calcButton.addEventListener("click", () => {
             var number = document.getElementById("input1").value
-            var index = 2
-            var tries = number
-            if(number > 2) {
-                clearResult()
-                while(tries != 0) {
-                    if(number % index == 0) {
-                        addResult(number + " ÷ " + index + " = " + number / index)
-                        //addResult("<right>" + number + "</right>" + "|" + "<left>" + index + "</left>")
-                        number = number / index
-                        index = 1
+            if( !isNaN(number) ) {
+                var index = 2
+                var tries = number
+                if(number > 2) {
+                    clearResult()
+                    while(tries != 0) {
+                        if(number % index == 0) {
+                            addResult(number + " ÷ " + index + " = " + number / index)
+                            number = number / index
+                            index = 1
+                        }
+                        if(index == number) {
+                            break
+                        }
+                        index++
+                        tries--
                     }
-                    if(index == number) {
-                        break
-                    }
-                    index++
-                    tries--
                 }
             }
+
         })
 
         function clearResult() {
