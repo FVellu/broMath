@@ -14,51 +14,92 @@
     </p>
 
     <p>Convert <input id="input1"> <select id="select1"></select></p>
-    <p>to <select id="select2"></select> <button id="calcButton">Calculate</button></p></p>
-    <p id="result"></p>
+    <p>to <select id="select2"></select> <button id="calcButton1">Calculate</button></p></p>
+    <p id="result1"></p>
+
+    <p>
+        Convert fluids
+    </p>
+
+    <p>Convert <input id="input2"> <select id="select3"></select></p>
+    <p>to <select id="select4"></select> <button id="calcButton2">Calculate</button></p></p>
+    <p id="result2"></p>
 
     <a href="../index.html">Go back</a>
 
     <script>
-        console.log("tesat")
-        var testArr = ["km", "hm", "dam", "m", "dm", "cm", "mm"]
-        var keyWord = "m"
-        var result = 0
-        var scale = 10
-        var select1 = document.getElementById("select1")
-        var select2 = document.getElementById("select2")
-        testArr.forEach(element => {
+        var lenghtArr = ["km", "hm", "dam", "m", "dm", "cm", "mm"]
+        var lenghtData = [0, 10] // 1: result, 2: scale
+        lenghtArr.forEach(element => {
             select1.innerHTML += "<option value='" + element + "'>" + element + "</option>"
             select2.innerHTML += "<option value='" + element + "'>" + element + "</option>"
         })
 
-        calcButton.addEventListener("click", () => {
+        var fluidArr = ["kl", "hl", "dal", "l", "dl", "cl", "ml"]
+        var fluidData = [0, 10]
+        fluidArr.forEach(element => {
+            select3.innerHTML += "<option value='" + element + "'>" + element + "</option>"
+            select4.innerHTML += "<option value='" + element + "'>" + element + "</option>"
+        })
+
+        calcButton1.addEventListener("click", () => {
+            var select1 = document.getElementById("select1")
+            var select2 = document.getElementById("select2")
             var input1 = document.getElementById("input1").value
             if( select1.value != select2.value && !isNaN(input1) ) {
-                result = input1
+                lenghtData[0] = input1
                 while(true) {
-                    if(testArr.indexOf(select1.value) > testArr.indexOf(select2.value)) {
+                    if(lenghtArr.indexOf(select1.value) > lenghtArr.indexOf(select2.value)) {
                         console.log("left")
-                        var calc = (testArr.indexOf(select1.value) - testArr.indexOf(select2.value)) * -1
+                        var calc = (lenghtArr.indexOf(select1.value) - lenghtArr.indexOf(select2.value)) * -1
                         for (let index = 0; index > calc; index--) {
-                            result = result / scale
-                            console.log(result)
+                            lenghtData[0] = lenghtData[0] / lenghtData[1]
+                            console.log(lenghtData[0])
                         }
                         break
                     } else {
                         console.log("right")
-                        var calc = (testArr.indexOf(select1.value) - testArr.indexOf(select2.value)) * -1
+                        var calc = (lenghtArr.indexOf(select1.value) - lenghtArr.indexOf(select2.value)) * -1
                         for (let index = 0; index < calc; index++) {
-                            result = result * scale
-                            console.log(result)
+                            lenghtData[0] = lenghtData[0] * lenghtData[1]
+                            console.log(lenghtData[0])
                         }
                         break
                     }
                 }
 
-                document.getElementById("result").innerHTML = result
+                document.getElementById("result1").innerHTML = lenghtData[0] + " " + select2.value
             }
+        })
 
+        calcButton2.addEventListener("click", () => {
+            var select3 = document.getElementById("select3")
+            var select4 = document.getElementById("select4")
+            var input2 = document.getElementById("input2").value
+            if( select3.value != select4.value && !isNaN(input2) ) {
+                fluidData[0] = input2
+                while(true) {
+                    if(fluidArr.indexOf(select3.value) > fluidArr.indexOf(select4.value)) {
+                        console.log("left")
+                        var calc = (fluidArr.indexOf(select3.value) - fluidArr.indexOf(select4.value)) * -1
+                        for (let index = 0; index > calc; index--) {
+                            fluidData[0] = fluidData[0] / fluidData[1]
+                            console.log(fluidData[0])
+                        }
+                        break
+                    } else {
+                        console.log("right")
+                        var calc = (fluidArr.indexOf(select3.value) - fluidArr.indexOf(select4.value)) * -1
+                        for (let index = 0; index < calc; index++) {
+                            fluidData[0] = fluidData[0] * fluidData[1]
+                            console.log(fluidData[0])
+                        }
+                        break
+                    }
+                }
+
+                document.getElementById("result2").innerHTML = fluidData[0] + " " + select4.value
+            }
         })
     </script>
 </body>
