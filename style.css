@@ -32,7 +32,13 @@ input {
     text-align: center;
 }
 
-input, button {
+select {
+    margin-right: 10px;
+    width: 60px;
+    text-align: center;
+}
+
+input, button, select {
     border-radius: 8px;
     border: none;
 }
@@ -64,6 +70,10 @@ nav p a {
     font-family: marker;
     transform: translateY(5px);
     text-decoration: none;
+}
+
+span {
+    display: block;
 }
 
 #about {

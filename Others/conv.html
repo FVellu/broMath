@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <title>broMath</title>
+</head>
+<body>
+    <nav><p><a href="../index.html">broMath</a></p></nav>
+    <p>
+        Convert lenghts
+    </p>
+
+    <p>Convert <input id="input1"> <select id="select1"></select></p>
+    <p>to <select id="select2"></select> <button id="calcButton">Calculate</button></p></p>
+    <p id="result"></p>
+
+    <a href="../index.html">Go back</a>
+
+    <script>
+        console.log("tesat")
+        var testArr = ["km", "hm", "dam", "m", "dm", "cm", "mm"]
+        var keyWord = "m"
+        var result = 0
+        var scale = 10
+        var select1 = document.getElementById("select1")
+        var select2 = document.getElementById("select2")
+        testArr.forEach(element => {
+            select1.innerHTML += "<option value='" + element + "'>" + element + "</option>"
+            select2.innerHTML += "<option value='" + element + "'>" + element + "</option>"
+        })
+
+        calcButton.addEventListener("click", () => {
+            var input1 = document.getElementById("input1").value
+            if( select1.value != select2.value && !isNaN(input1) ) {
+                result = input1
+                while(true) {
+                    if(testArr.indexOf(select1.value) > testArr.indexOf(select2.value)) {
+                        console.log("left")
+                        var calc = (testArr.indexOf(select1.value) - testArr.indexOf(select2.value)) * -1
+                        for (let index = 0; index > calc; index--) {
+                            result = result / scale
+                            console.log(result)
+                        }
+                        break
+                    } else {
+                        console.log("right")
+                        var calc = (testArr.indexOf(select1.value) - testArr.indexOf(select2.value)) * -1
+                        for (let index = 0; index < calc; index++) {
+                            result = result * scale
+                            console.log(result)
+                        }
+                        break
+                    }
+                }
+
+                document.getElementById("result").innerHTML = result
+            }
+
+        })
+    </script>
+</body>
+</html>
