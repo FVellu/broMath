@@ -25,10 +25,9 @@
             var number = document.getElementById("input1").value
             if( !isNaN(number) ) {
                 var index = 2
-                var tries = number
                 if(number > 2) {
                     clearResult()
-                    while(tries != 0) {
+                    while(true) {
                         if(number % index == 0) {
                             addResult(number + " ÷ " + index + " = " + number / index)
                             number = number / index
@@ -38,7 +37,6 @@
                             break
                         }
                         index++
-                        tries--
                     }
                 }
             }
