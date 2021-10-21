@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <title>broMath</title>
+</head>
+<body>
+    <p>
+        Multiples of a number
+    </p>
+
+    <div>
+        <input id="input1" placeholder="Number">
+        <input id="input2" placeholder="Number of times"> <button id="calcButton">Calculate</button>
+    </div>
+    <p id="result"></p>
+
+    <a href="../index.html">Go back</a>
+
+    <script>
+        calcButton.addEventListener("click", () => {
+            var number = document.getElementById("input1").value
+            var numberOfTimes = document.getElementById("input2").value
+            if( !isNaN(number) && !isNaN(numberOfTimes) ) {
+                var index = 1
+                var loopFor = 0
+                while(true) {
+                    if(loopFor == numberOfTimes) {
+                        break
+                    }
+                    if(index % number == 0) {
+                        document.getElementById("result").innerHTML += index + "\n"
+                        loopFor++
+                    }
+                    index++
+                }
+            }
+        })
+    </script>
+    <script src="../script.js"></script>
+</body>
+</html>
