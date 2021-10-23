@@ -4,8 +4,12 @@ $header-color: #ff133e
 $nav-color: #ff133e
 $paragraph-color: white
 $hyperlink-color: white
+$nav-gradient-color: linear-gradient(45deg, #f40925, #f40983)
 
-$nav-broMath-font-size: 25px
+$nav-border-radius: 25px
+$nav-gradient-size: 300%
+$nav-gradient-animation-speed: 3s
+$nav-broMath-font-size: 35px
 $nav-height: 60px
 $input-button-select-border-radius: 8px
 $input-width: 100px
@@ -48,14 +52,18 @@ input
     margin-right: $margin-right
     width: $input-width
     text-align: center
-    
+
 select 
     margin-right: $margin-right
-
+    
 nav
     height: $nav-height
     width: 100%
-    background-color: $nav-color
+    background-image: $nav-gradient-color
+    background-size: $nav-gradient-size
+    animation: gradient $nav-gradient-animation-speed infinite alternate
+    border-bottom-left-radius: $nav-border-radius
+    border-bottom-right-radius: $nav-border-radius
     margin-bottom: $margin-bottom
 
     // For centering "nav p a" within the nav
@@ -80,3 +88,9 @@ nav p a
 @font-face 
     font-family: marker;
     src: url(./Fonts/PermanentMarker-Regular.ttf);
+
+@keyframes gradient
+    0%
+        background-position: left
+    100%
+        background-position: right
