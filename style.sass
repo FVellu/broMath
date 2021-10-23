@@ -1,0 +1,82 @@
+// == VARIABLES ==
+$background-color: #393939
+$header-color: #ff133e
+$nav-color: #ff133e
+$paragraph-color: white
+$hyperlink-color: white
+
+$nav-broMath-font-size: 25px
+$nav-height: 60px
+$input-button-select-border-radius: 8px
+$input-width: 100px
+$margin-bottom: 10px
+$margin-right: 10px
+// ===============
+    
+*
+    margin: 0
+    font-family: roboto
+
+body
+    background-color: $background-color
+
+p, h1, a
+    text-align: center
+
+h1
+    color: $header-color
+
+p
+    color: $paragraph-color
+    margin-bottom: $margin-bottom
+
+a 
+    color: $hyperlink-color
+    display: block
+    margin: 0 auto
+
+div
+    display: flex
+    margin-bottom: $margin-bottom
+    justify-content: center
+
+input, button, select
+    border-radius: $input-button-select-border-radius
+    border: none
+
+input
+    margin-right: $margin-right
+    width: $input-width
+    text-align: center
+    
+select 
+    margin-right: $margin-right
+
+nav
+    height: $nav-height
+    width: 100%
+    background-color: $nav-color
+    margin-bottom: $margin-bottom
+
+    // For centering "nav p a" within the nav
+    display: flex
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+
+nav p a
+    height: auto
+    color: $paragraph-color
+    font-size: $nav-broMath-font-size
+    font-family: marker
+    transform: translateY(5px)
+    text-decoration: none
+
+@font-face 
+    font-family: roboto;
+    src: url(./Fonts/Roboto-Bold.ttf);
+
+@font-face 
+    font-family: marker;
+    src: url(./Fonts/PermanentMarker-Regular.ttf);
