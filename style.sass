@@ -4,8 +4,12 @@ $header-color: #ff133e
 $nav-color: #ff133e
 $paragraph-color: white
 $hyperlink-color: white
+$hyperlink-animation-color: #ff133e
 $nav-gradient-color: linear-gradient(45deg, #f40925, #f40983)
 
+$hyperlink-animation-transform: translateY(-5px)
+$hyperlink-animation-speed: 500ms
+$button-animation-speed: 500ms
 $left-right-padding: 25px
 $nav-border-radius: 25px
 $nav-gradient-size: 300%
@@ -33,6 +37,7 @@ p, h1, a
 
 h1
     color: $header-color
+    height: 50px
 
 p
     color: $paragraph-color
@@ -42,6 +47,12 @@ a
     color: $hyperlink-color
     display: block
     margin: 0 auto
+    transform: translateY(0px)
+    transition: transform $hyperlink-animation-speed, color $hyperlink-animation-speed
+
+    &:hover:not(#nav-hyperlink), &:focus:not(#nav-hyperlink)
+        transform: $hyperlink-animation-transform
+        color: $hyperlink-animation-color
 
 div
     display: flex
@@ -56,6 +67,14 @@ input
     margin-right: $margin-right
     width: $input-width
     text-align: center
+
+button
+    cursor: pointer
+    transition: background-color $button-animation-speed, color $button-animation-speed
+
+    &:hover, &:focus
+        background-color: #ff133e
+        color: white
 
 select 
     margin-right: $margin-right
@@ -85,6 +104,9 @@ nav p a
     transform: translateY(5px)
     text-decoration: none
 
+#go-back 
+    margin-top: 20px
+
 @font-face 
     font-family: roboto;
     src: url(./Fonts/Roboto-Bold.ttf);
@@ -98,6 +120,14 @@ nav p a
         background-position: left
     100%
         background-position: right
+
+@keyframes result
+    0%
+        transform: translateY(-10px)
+        opacity: 0
+    100%
+        transform: translateY(0px)
+        opacity: 1
 
 @media only screen and (max-width: 320px)
   input

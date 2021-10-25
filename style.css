@@ -15,6 +15,7 @@ p, h1, a {
 
 h1 {
   color: #ff133e;
+  height: 50px;
 }
 
 p {
@@ -26,6 +27,18 @@ a {
   color: white;
   display: block;
   margin: 0 auto;
+  -webkit-transform: translateY(0px);
+          transform: translateY(0px);
+  -webkit-transition: color 500ms, -webkit-transform 500ms;
+  transition: color 500ms, -webkit-transform 500ms;
+  transition: transform 500ms, color 500ms;
+  transition: transform 500ms, color 500ms, -webkit-transform 500ms;
+}
+
+a:hover:not(#nav-hyperlink), a:focus:not(#nav-hyperlink) {
+  -webkit-transform: translateY(-5px);
+          transform: translateY(-5px);
+  color: #ff133e;
 }
 
 div {
@@ -47,6 +60,17 @@ input {
   margin-right: 10px;
   width: 100px;
   text-align: center;
+}
+
+button {
+  cursor: pointer;
+  -webkit-transition: background-color 500ms, color 500ms;
+  transition: background-color 500ms, color 500ms;
+}
+
+button:hover, button:focus {
+  background-color: #ff133e;
+  color: white;
 }
 
 select {
@@ -90,6 +114,10 @@ nav p a {
   text-decoration: none;
 }
 
+#go-back {
+  margin-top: 20px;
+}
+
 @font-face {
   font-family: roboto;
   src: url(./Fonts/Roboto-Bold.ttf);
@@ -115,6 +143,32 @@ nav p a {
   }
   100% {
     background-position: right;
+  }
+}
+
+@-webkit-keyframes result {
+  0% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes result {
+  0% {
+    -webkit-transform: translateY(-10px);
+            transform: translateY(-10px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
   }
 }
 
