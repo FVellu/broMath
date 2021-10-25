@@ -4,11 +4,13 @@
 }
 
 body {
-  background-color: #222222;
+  background-color: #393939;
 }
 
 p, h1, a {
   text-align: center;
+  padding-left: 25px;
+  padding-right: 25px;
 }
 
 h1 {
@@ -113,6 +115,12 @@ nav p a {
   }
   100% {
     background-position: right;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  input {
+    width: 70px;
   }
 }
 /*# sourceMappingURL=style.css.map */

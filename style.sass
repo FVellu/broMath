@@ -6,6 +6,7 @@ $paragraph-color: white
 $hyperlink-color: white
 $nav-gradient-color: linear-gradient(45deg, #f40925, #f40983)
 
+$left-right-padding: 25px
 $nav-border-radius: 25px
 $nav-gradient-size: 300%
 $nav-gradient-animation-speed: 3s
@@ -13,6 +14,7 @@ $nav-broMath-font-size: 35px
 $nav-height: 60px
 $input-button-select-border-radius: 8px
 $input-width: 100px
+$input-width-mobile: 70px
 $margin-bottom: 10px
 $margin-right: 10px
 // ===============
@@ -26,6 +28,8 @@ body
 
 p, h1, a
     text-align: center
+    padding-left: $left-right-padding
+    padding-right: $left-right-padding
 
 h1
     color: $header-color
@@ -94,3 +98,7 @@ nav p a
         background-position: left
     100%
         background-position: right
+
+@media only screen and (max-width: 320px)
+  input
+      width: $input-width-mobile
