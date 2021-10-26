@@ -25,11 +25,15 @@
     <script>
         calcButton.addEventListener("click", () => {
             var numbers = document.getElementById("input1").value.split(" ")
-            var result = lcm(numbers[0], numbers[1])
-            for (let index = 2; index < numbers.length; index++) {
-                result = lcm(result, numbers[index])
+            if(numbers.length > 1) {
+                var result = lcm(numbers[0], numbers[1])
+                for (let index = 2; index < numbers.length; index++) {
+                    result = lcm(result, numbers[index])
+                }
+                document.getElementById("result").innerHTML = result
+            } else {
+                document.getElementById("result").innerHTML = "Insert more numbers then 1"
             }
-            document.getElementById("result").innerHTML = result
         })
 
         function lcm(number1, number2) {
