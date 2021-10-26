@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../style.css">
+    <meta property="og:title" content="broMath">
+    <meta property="og:description" content="broMath is a FOSS website that makes doing your homeworks easier">
+    <title>broMath</title>
+</head>
+<body>
+    <p>
+        Calculate LCM/LCD
+    </p>
+
+    <div>
+        <input type="text" id="input1" placeholder="Numbers"> <button id="calcButton">Calculate</button>
+    </div>
+    <p id="result"></p>
+
+    <a href="../index.html" id="go-back">Go back</a>
+
+    <script>
+        calcButton.addEventListener("click", () => {
+            var numbers = document.getElementById("input1").value.split(" ")
+            var result = lcm(numbers[0], numbers[1])
+            for (let index = 2; index < numbers.length; index++) {
+                result = lcm(result, numbers[index])
+            }
+            document.getElementById("result").innerHTML = result
+        })
+
+        function lcm(number1, number2) {
+            return ((number1 * number2) / gcd(number1, number2))
+        }
+
+        function gcd(number1, number2) {
+            return largestInArray(getMultiples(number1).filter(value => getMultiples(number2).includes(value)))
+        }
+
+        function getMultiples(number) {
+            let index = 1
+            let array = []
+            while(true) {
+                if(number % index == 0) {
+                    array.push(index)
+                }
+                if(number == index) {
+                    return array
+                }
+                index++
+            }
+        }
+
+        function largestInArray(array) {
+            let biggest = 1
+            for (let index = 0; index < array.length; index++) {
+                if(array[index] > biggest) {
+                    biggest = array[index]
+                }
+            }
+            return biggest
+        }
+    </script>
+    <script src="../script.js"></script>
+</body>
+</html>
